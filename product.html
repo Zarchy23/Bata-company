@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Product — Bata Zimbabwe</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <div class="header-inner container">
+    <div class="brand"><a href="index.html"><img src="images/logo.svg" alt="logo"></a></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="stores.html">Stores</a></li>
+        <li><a href="promotions.html">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart <span class="cart-count">0</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="product-main">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+    <h1 id="p-title" style="color:var(--primary)"></h1>
+    <button class="back-btn" onclick="history.back()">Back</button>
+  </div>
+
+  <div id="p-wrap" style="display:grid;grid-template-columns:360px 1fr;gap:16px;margin-top:12px">
+    <div class="card"><img id="p-img" src="" alt=""></div>
+    <div>
+      <div id="p-desc" class="small"></div>
+      <div id="p-price" class="price" style="margin-top:8px"></div>
+      <div style="margin-top:12px"><button id="p-add" class="btn">Add to cart</button> <a href="cart.html" style="margin-left:8px" class="btn">Go to Cart</a></div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer container">© 2025 Bata Zimbabwe</footer>
+
+<script src="script.js"></script>
+<script>
+function qs(key){const u=new URLSearchParams(location.search);return u.get(key);}
+const pid = qs('id');
+const prod = findProduct(pid);
+if(!prod){document.getElementById('product-main').innerHTML='<p>Product not found. <button onclick="history.back()" class="back-btn">Back</button></p>';}
+else{
+  document.getElementById('p-title').textContent = prod.title;
+  document.getElementById('p-img').src = prod.img;
+  document.getElementById('p-desc').textContent = prod.desc;
+  document.getElementById('p-price').textContent = '$' + prod.price;
+  document.getElementById('p-add').addEventListener('click', ()=>{ addToCart(prod.id,1); alert('Added to cart'); });
+}
+</script>
+</body>
+</html>

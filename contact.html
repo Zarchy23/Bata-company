@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact — Bata Zimbabwe</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <div class="header-inner container">
+    <div class="brand"><a href="index.html"><img src="images/logo.svg" alt="logo"></a></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="stores.html">Stores</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h1 style="color:var(--primary)">Contact Us</h1><button class="back-btn" onclick="history.back()">Back</button></div>
+  <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:12px">
+    <div style="background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.06)">
+      <form id="contact-form">
+        <input required name="name" placeholder="Your name" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-top:8px">
+        <input required type="email" name="email" placeholder="Email" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-top:8px">
+        <textarea required name="message" placeholder="Message" style="width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-top:8px"></textarea>
+        <button class="btn" style="margin-top:8px">Send</button>
+      </form>
+    </div>
+    <aside style="background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.06)">
+      <h4>Our Store</h4>
+      <p class="small">123 Shoe Street, Harare<br>+263 123 456 789<br>info@bata.co.zw</p>
+      <div style="margin-top:8px" class="small">Opening hours: Mon-Sat 8AM-5PM</div>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer container">© 2025 Bata Zimbabwe</footer>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e){ e.preventDefault(); alert('Thanks! We received your message.'); this.reset(); });
+</script>
+</body>
+</html>

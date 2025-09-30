@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cart — Bata Zimbabwe</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <div class="header-inner container">
+    <div class="brand"><a href="index.html"><img src="images/logo.svg" alt="logo"></a></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="stores.html">Stores</a></li>
+        <li><a href="promotions.html">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h1 style="color:var(--primary)">Your Cart</h1><button class="back-btn" onclick="history.back()">Back</button></div>
+  <div id="cart-list" style="margin-top:12px"></div>
+  <div id="cart-actions" style="margin-top:18px"></div>
+</main>
+
+<footer class="footer container">© 2025 Bata Zimbabwe</footer>
+
+<script src="script.js"></script>
+<script>
+function renderCart(){
+  const cart = getCart();
+  const wrap = document.getElementById('cart-list');
+  if(!cart.length){wrap.innerHTML='<p>Your cart is empty. <a href="products.html">Start shopping</a></p>'; document.getElementById('cart-actions').innerHTML=''; return;}
+  let html = '<div style="display:grid;gap:12px">';
+  let total=0;
+  cart.forEach(i=>{const p=findProduct(i.id); const line = p.price * i.qty; total += line; html += `<div style="display:flex;gap:12px;align-items:center;background:#fff;padding:12px;border-radius:8px"><img src='${p.img}' style='width:100px;height:80px;object-fit:cover;border-radius:6px'><div style='flex:1'><strong>${p.title}</strong><div class='small'>$${p.price} x ${i.qty} = $${line.toFixed(2)}</div></div><div><button class='btn' data-id='${p.id}' onclick='removeItem(${p.id})'>Remove</button></div></div>`});
+  html += `</div><div style='margin-top:14px'><strong>Total: $${total.toFixed(2)}</strong></div>`;
+  wrap.innerHTML = html;
+  document.getElementById('cart-actions').innerHTML = `<a href="checkout.html" class="btn">Proceed to Checkout</a>`;
+}
+function removeItem(id){ let cart = getCart().filter(i=>i.id!==id); saveCart(cart); renderCart(); }
+renderCart();
+</script>
+</body>
+</html>

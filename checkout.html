@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Checkout — Bata Zimbabwe</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <div class="header-inner container">
+    <div class="brand"><a href="index.html"><img src="images/logo.svg" alt="logo"></a></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart <span class="cart-count">0</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h1 style="color:var(--primary)">Checkout</h1><button class="back-btn" onclick="history.back()">Back</button></div>
+  <form id="checkout-form" style="margin-top:12px;display:grid;gap:8px;max-width:600px">
+    <input type="text" name="name" placeholder="Full name" required style="padding:10px;border-radius:8px;border:1px solid #eee">
+    <input type="email" name="email" placeholder="Email" required style="padding:10px;border-radius:8px;border:1px solid #eee">
+    <input type="text" name="address" placeholder="Delivery address" required style="padding:10px;border-radius:8px;border:1px solid #eee">
+    <select name="payment" required style="padding:10px;border-radius:8px;border:1px solid #eee">
+      <option value="">Choose payment</option><option value="ecocash">EcoCash (simulated)</option><option value="card">Card on Delivery</option>
+    </select>
+    <button class="btn" type="submit">Place Order</button>
+  </form>
+</main>
+
+<footer class="footer container">© 2025 Bata Zimbabwe</footer>
+
+<script src="script.js"></script>
+<script>
+document.getElementById('checkout-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  // Simulate order
+  localStorage.removeItem(CART_KEY);
+  updateCartCount();
+  alert('Thank you! Your order has been placed (simulation).');
+  location.href = 'index.html';
+});
+</script>
+</body>
+</html>
