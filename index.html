@@ -61,7 +61,7 @@
 <script>
 // render featured on index
 const featuredEl = document.getElementById('featured');
-featuredEl.innerHTML = sampleProducts.map(p=>`<div class="card"><img src="${jpg}" alt=""><div class="card-body"><strong>${p.title}</strong><div class="price">$${p.price}</div><div style="margin-top:8px"><button class="btn add-to-cart" data-id="${p.id}">Add to cart</button> <a href="product.html?id=${p.id}" class="small" style="margin-left:8px">View</a></div></div></div>`).join('');
+featuredEl.innerHTML = sampleProducts.map(p=>`<div class="card"><img src="${p.img}" alt=""><div class="card-body"><strong>${p.title}</strong><div class="price">$${p.price}</div><div style="margin-top:8px"><button class="btn add-to-cart" data-id="${p.id}">Add to cart</button> <a href="product.html?id=${p.id}" class="small" style="margin-left:8px">View</a></div></div></div>`).join('');
 </script>
 </body>
 </html>
