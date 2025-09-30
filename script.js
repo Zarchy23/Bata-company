@@ -1,8 +1,8 @@
 // Shared script: products data, cart management, and helpers
 const sampleProducts = [
-  {id:1,title:"Men's Sports Shoe",price:59.99,cat:'men',img:'images/product1.svg',desc:'Durable men sports shoe perfect for daily runs.'},
-  {id:2,title:"Women\'s Casual Shoe",price:49.99,cat:'women',img:'images/product2.svg',desc:'Comfortable casual shoe for women.'},
-  {id:3,title:"School Shoes",price:39.99,cat:'kids',img:'images/product3.svg',desc:'Sturdy and affordable school shoes for kids.'}
+  {id:1,title:"Men'Shoe",price:59.99,cat:'men',img:'man shoe.jpg',desc:'Durable men sports shoe perfect for daily runs.'},
+  {id:2,title:"Women's  Shoe",price:49.99,cat:'women',women shoe.jpg',desc:'Comfortable casual shoe for women.'},
+  {id:3,title:"School Shoes",price:39.99,cat:'kids',img:'school shoe.jpg',desc:'Sturdy and affordable school shoes for kids.'}
 ];
 
 const CART_KEY = 'bata_cart_v1';
