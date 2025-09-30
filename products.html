@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Products — Bata Zimbabwe</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <div class="header-inner container">
+    <div class="brand"><a href="index.html"><img src="images/logo.svg" alt="logo"></a></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="stores.html">Stores</a></li>
+        <li><a href="promotions.html">Promotions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart <span class="cart-count">0</span></a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center"><button id="open-search" class="btn">Search</button></div>
+  </div>
+</header>
+
+<main class="container">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+    <h1 style="color:var(--primary)">Products</h1>
+    <button class="back-btn" onclick="history.back()">Back</button>
+  </div>
+
+  <div style="margin-top:12px" class="search-inline">
+    <input id="prod-search" placeholder="Search products by name" style="flex:1;padding:10px;border-radius:8px;border:1px solid #eee">
+    <select id="prod-cat" style="padding:10px;border-radius:8px;border:1px solid #eee">
+      <option value="">All categories</option><option value="men">Men</option><option value="women">Women</option><option value="kids">Kids</option>
+    </select>
+  </div>
+
+  <div class="products-grid" id="products-list" style="margin-top:16px"></div>
+</main>
+
+<footer class="footer container">© 2025 Bata Zimbabwe</footer>
+
+<script src="script.js"></script>
+<script>
+const renderList = (items)=>{document.getElementById('products-list').innerHTML = items.map(p=>`<div class="card"><img src="${p.img}" alt=""><div class="card-body"><strong>${p.title}</strong><div class="price">$${p.price}</div><div style="margin-top:8px"><button class="btn add-to-cart" data-id="${p.id}">Add to cart</button> <a href="product.html?id=${p.id}" class="small" style="margin-left:8px">View</a></div></div></div>`).join(''); updateCartCount(); initAddButtons();}
+function initAddButtons(){document.querySelectorAll('.add-to-cart').forEach(btn=>btn.addEventListener('click', ()=>{const id=Number(btn.dataset.id); addToCart(id,1); btn.textContent='Added ✓'; btn.disabled=true; setTimeout(()=>{btn.textContent='Add to cart';btn.disabled=false},900);}));}
+renderList(sampleProducts);
+
+document.getElementById('prod-search').addEventListener('input',(e)=>{const q=e.target.value.toLowerCase();renderList(sampleProducts.filter(p=>p.title.toLowerCase().includes(q)))});
+document.getElementById('prod-cat').addEventListener('change',(e)=>{const v=e.target.value;renderList(v?sampleProducts.filter(p=>p.cat===v):sampleProducts);});
+</script>
+</body>
+</html>
