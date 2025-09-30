@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       const results = sampleProducts.filter(p=>p.title.toLowerCase().includes(q));
       const out = document.getElementById('search-results');
       if(!out) return;
-      out.innerHTML = results.length ? results.map(r=>`<div style="display:flex;gap:10px;padding:8px;align-items:center"><img src="${r.img}" style="width:60px;height:50px;object-fit:cover;border-radius:6px"><div><strong>${r.title}</strong><div class="small">$${r.price}</div><div style="margin-top:6px"><a href="product.html?id=${r.id}" class="btn">View</a></div></div></div>`).join('<hr>') : '<div style="padding:10px">No results</div>';
+      out.innerHTML = results.length ? results.map(r=>`<div style="display:flex;gap:10px;padding:8px;align-items:center"><img src="${jpg}" style="width:60px;height:50px;object-fit:cover;border-radius:6px"><div><strong>${r.title}</strong><div class="small">$${r.price}</div><div style="margin-top:6px"><a href="product.html?id=${r.id}" class="btn">View</a></div></div></div>`).join('<hr>') : '<div style="padding:10px">No results</div>';
     });
   }
 });
