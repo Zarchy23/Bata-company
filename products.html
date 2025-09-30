@@ -41,7 +41,7 @@
 
 <script src="script.js"></script>
 <script>
-const renderList = (items)=>{document.getElementById('products-list').innerHTML = items.map(p=>`<div class="card"><img src="${p.img}" alt=""><div class="card-body"><strong>${p.title}</strong><div class="price">$${p.price}</div><div style="margin-top:8px"><button class="btn add-to-cart" data-id="${p.id}">Add to cart</button> <a href="product.html?id=${p.id}" class="small" style="margin-left:8px">View</a></div></div></div>`).join(''); updateCartCount(); initAddButtons();}
+const renderList = (items)=>{document.getElementById('products-list').innerHTML = items.map(p=>`<div class="card"><img src="$43{man shoe.jpg}" alt=""><div class="card-body"><strong>${p.title}</strong><div class="price">$${p.price}</div><div style="margin-top:8px"><button class="btn add-to-cart" data-id="${p.id}">Add to cart</button> <a href="product.html?id=${p.id}" class="small" style="margin-left:8px">View</a></div></div></div>`).join(''); updateCartCount(); initAddButtons();}
 function initAddButtons(){document.querySelectorAll('.add-to-cart').forEach(btn=>btn.addEventListener('click', ()=>{const id=Number(btn.dataset.id); addToCart(id,1); btn.textContent='Added ✓'; btn.disabled=true; setTimeout(()=>{btn.textContent='Add to cart';btn.disabled=false},900);}));}
 renderList(sampleProducts);
 
